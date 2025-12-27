@@ -30,3 +30,7 @@ assets/images/*.jpg
 assets/images/*.png
 assets/images/*.jpeg
 !assets/images/profile.svg
+
+# Old backup files
+*_old.css
+*_old.js
