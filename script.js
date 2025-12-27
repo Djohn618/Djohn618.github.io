@@ -22,6 +22,21 @@ const translations = {
         'Ich bin Deshan John, derzeit in der Ausbildung zum Informatiker bei der Haeusler AG. Parallel dazu engagiere ich mich beim JETZ Youth Lab, wo ich meine Kenntnisse in Webentwicklung und Programmierung erweitere.': 'Ich bin Deshan John, derzeit in der Ausbildung zum Informatiker bei der Haeusler AG. Parallel dazu engagiere ich mich beim JETZ Youth Lab, wo ich meine Kenntnisse in Webentwicklung und Programmierung erweitere.',
         'Was mich auszeichnet, ist meine Disziplin und strukturierte Arbeitsweise. Ich glaube an die Kraft von klarem Design und durchdachten Lösungen, die nicht nur funktional, sondern auch ästhetisch ansprechend sind.': 'Was mich auszeichnet, ist meine Disziplin und strukturierte Arbeitsweise. Ich glaube an die Kraft von klarem Design und durchdachten Lösungen, die nicht nur funktional, sondern auch ästhetisch ansprechend sind.',
         
+        // Milestones Section
+        'Mein Werdegang': 'Mein Werdegang',
+        'Schulzeit in Sri Lanka': 'Schulzeit in Sri Lanka',
+        'Sinhala Central College National School, Trincomalee': 'Sinhala Central College National School, Trincomalee',
+        'Fundament, kultureller Background': 'Fundament, kultureller Background',
+        'Fremdsprachenklasse in Reinach': 'Fremdsprachenklasse in Reinach',
+        'Schweiz': 'Schweiz',
+        'Integration, Sprachaufbau (Deutsch & Englisch)': 'Integration, Sprachaufbau (Deutsch & Englisch)',
+        'Sekundarschule Reinach': 'Sekundarschule Reinach',
+        'Niveau A → Niveau E': 'Niveau A → Niveau E',
+        'Leistungsentwicklung & Vorbereitung auf die IT-Lehre': 'Leistungsentwicklung & Vorbereitung auf die IT-Lehre',
+        'Heute': 'Heute',
+        '2. Lehrjahr Informatiker Applikationsentwicklung': '2. Lehrjahr Informatiker Applikationsentwicklung',
+        'Praxis, Software- & Webentwicklung': 'Praxis, Software- & Webentwicklung',
+        
         // Work Section
         'Meine Arbeiten': 'Meine Arbeiten',
         'Eine moderne Website für einen Supermarkt mit responsivem Design und benutzerfreundlicher Navigation.': 'Eine moderne Website für einen Supermarkt mit responsivem Design und benutzerfreundlicher Navigation.',
@@ -69,6 +84,21 @@ const translations = {
         'Über mich': 'About Me',
         'Ich bin Deshan John, derzeit in der Ausbildung zum Informatiker bei der Haeusler AG. Parallel dazu engagiere ich mich beim JETZ Youth Lab, wo ich meine Kenntnisse in Webentwicklung und Programmierung erweitere.': 'I\'m Deshan John, currently training as a computer scientist at Haeusler AG. In parallel, I\'m involved with JETZ Youth Lab, where I expand my knowledge in web development and programming.',
         'Was mich auszeichnet, ist meine Disziplin und strukturierte Arbeitsweise. Ich glaube an die Kraft von klarem Design und durchdachten Lösungen, die nicht nur funktional, sondern auch ästhetisch ansprechend sind.': 'What distinguishes me is my discipline and structured approach to work. I believe in the power of clear design and well-thought-out solutions that are not only functional but also aesthetically pleasing.',
+        
+        // Milestones Section
+        'Mein Werdegang': 'My Journey',
+        'Schulzeit in Sri Lanka': 'School Years in Sri Lanka',
+        'Sinhala Central College National School, Trincomalee': 'Sinhala Central College National School, Trincomalee',
+        'Fundament, kultureller Background': 'Foundation, cultural background',
+        'Fremdsprachenklasse in Reinach': 'Foreign Language Class in Reinach',
+        'Schweiz': 'Switzerland',
+        'Integration, Sprachaufbau (Deutsch & Englisch)': 'Integration, language development (German & English)',
+        'Sekundarschule Reinach': 'Secondary School Reinach',
+        'Niveau A → Niveau E': 'Level A → Level E',
+        'Leistungsentwicklung & Vorbereitung auf die IT-Lehre': 'Performance development & preparation for IT apprenticeship',
+        'Heute': 'Today',
+        '2. Lehrjahr Informatiker Applikationsentwicklung': '2nd Year IT Application Development Apprentice',
+        'Praxis, Software- & Webentwicklung': 'Practice, software & web development',
         
         // Work Section
         'Meine Arbeiten': 'My Work',
