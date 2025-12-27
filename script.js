@@ -1,4 +1,11 @@
 // ===========================
+// Configuration
+// ===========================
+const CONFIG = {
+    contactEmail: 'deshanjohn@gmx.ch'
+};
+
+// ===========================
 // Language Translations
 // ===========================
 const translations = {
@@ -262,7 +269,7 @@ function initContactForm() {
             const message = document.getElementById('message').value;
             
             // Create mailto link
-            const mailtoLink = `mailto:deshanjohn@gmx.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            const mailtoLink = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
             
             // Open email client
             window.location.href = mailtoLink;
