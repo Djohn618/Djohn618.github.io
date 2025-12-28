@@ -332,14 +332,17 @@
     </div>
 
     <script>
-        // Dark mode toggle
+        // Dark mode toggle - Default to dark mode
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
         
         const savedMode = localStorage.getItem('darkMode');
-        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         
-        if (savedMode === 'enabled' || (!savedMode && systemPrefersDark)) {
+        // Default to dark mode: enable if not explicitly disabled
+        if (savedMode === 'disabled') {
+            body.classList.remove('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        } else {
             body.classList.add('dark-mode');
             darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         }
