@@ -554,6 +554,7 @@ body.dark-mode .category-btn {
     color: var(--accent-secondary);
 }
 
+/* Fix: Category button active/hover state in dark mode needs better contrast */
 .category-btn.active,
 .category-btn:hover {
     background-color: var(--color-dark-2);
@@ -564,6 +565,7 @@ body.dark-mode .category-btn.active,
 body.dark-mode .category-btn:hover {
     background-color: var(--accent-secondary);
     border-color: var(--accent-secondary);
+    color: var(--bg-dark); /* Better contrast for selected state */
 }
 
 .projects-grid {
@@ -1013,6 +1015,7 @@ body.dark-mode .service-number {
     font-weight: 600;
 }
 
+/* Fix: Service toggle (plus icon) needs proper color in dark mode hover state */
 .service-toggle {
     width: 50px;
     height: 50px;
@@ -1041,6 +1044,7 @@ body.dark-mode .service-toggle {
 
 body.dark-mode .service-toggle:hover {
     background-color: var(--accent-secondary);
+    color: var(--bg-dark); /* Better contrast for icon visibility */
 }
 
 .service-details {
@@ -1495,8 +1499,13 @@ body.dark-mode .footer {
 }
 
 @media (max-width: 968px) {
-    .nav {
+    .nav-list {
         display: none;
+    }
+    
+    /* Keep dark mode toggle visible on mobile by moving it outside nav */
+    .header-controls {
+        display: flex !important;
     }
     
     .hamburger {
