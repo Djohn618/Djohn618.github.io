@@ -434,14 +434,40 @@
                                 <h4>Email</h4>
                                 <a href="mailto:deshanjohn@gmx.ch">deshanjohn@gmx.ch</a>
                             </div>
+
+                            <form action="https://formspree.io/f/DEINE_FORM_ID" method="POST" class="contact-form">
+                                            <!-- Formular-Titel zur Identifikation -->
+                                            <input type="hidden" name="Formular_Art" value="Kontakt-Formular">
+                                            
+                                            <!-- Spam-Schutz (Honeypot) -->
+                                            <input type="hidden" name="_gotcha" style="display:none">
+                                            
+                                            <!-- E-Mail Empfänger -->
+                                            <input type="hidden" name="_replyto" value="deshan.john@gmx.ch">
+                                            
+                                            <!-- Betreff der E-Mail -->
+                                            <input type="hidden" name="_subject" value="Neue Kontaktanfrage von deiner Website">
+                                            
+                                            <label for="vorname">Vorname:</label>
+                                            <input type="text" id="vorname" name="vorname" required>
+                                            
+                                            <label for="nachname">Nachname:</label>
+                                            <input type="text" id="nachname" name="nachname" required>
+                                            
+                                            <label for="email">E-Mail:</label>
+                                            <input type="email" id="email" name="email" required>
+                                            
+                                            <label for="nachricht">Ihre Nachricht:</label>
+                                            <textarea id="nachricht" name="nachricht" rows="4" required></textarea>
+                                            
+                                            <button id="submitButton" type="submit" class="btn">Senden</button>
+                                        </form>
+                                    </div>
+                                </div>
                         </div>
                         <div class="contact-detail-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-detail-text">
-                                <h4 data-de="Telefon" data-en="Phone">Telefon</h4>
-                                <a href="tel:+41123456789">+41 12 345 67 89</a>
                             </div>
                         </div>
                         <div class="contact-detail-item">
@@ -450,7 +476,7 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4 data-de="Standort" data-en="Location">Standort</h4>
-                                <p>Zürich, Schweiz</p>
+                                <p>Basel, Schweiz</p>
                             </div>
                         </div>
                     </div>
