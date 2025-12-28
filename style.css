@@ -102,6 +102,27 @@ body.dark-mode .header {
     align-items: center;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
 .logo h1 {
     font-size: 1.75rem;
     font-weight: 400;
@@ -1745,6 +1766,10 @@ body.dark-mode .footer {
 }
 
 @media (max-width: 480px) {
+    .logo-image {
+        height: 40px;
+    }
+    
     .logo h1 {
         font-size: 1.4rem;
     }

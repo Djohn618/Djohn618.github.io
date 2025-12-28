@@ -1,0 +1,15 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#395B64" stroke="#50B6FE" stroke-width="3"/>
+  
+  <!-- Inner decorative circle -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#A5C9CA" stroke-width="1" opacity="0.3"/>
+  
+  <!-- DJ Text -->
+  <text x="100" y="125" font-family="'Playfair Display', serif" font-size="80" font-weight="700" fill="#E7F6F2" text-anchor="middle">DJ</text>
+  
+  <!-- Small decorative dots -->
+  <circle cx="60" cy="60" r="4" fill="#50B6FE"/>
+  <circle cx="140" cy="60" r="4" fill="#50B6FE"/>
+  <circle cx="100" cy="45" r="3" fill="#A5C9CA"/>
+</svg>
