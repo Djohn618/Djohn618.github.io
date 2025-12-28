@@ -1863,6 +1863,42 @@ body.dark-mode .footer {
 }
 
 /* ===========================
+   Accessibility & Focus States
+   =========================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
+body.dark-mode a:focus,
+body.dark-mode button:focus,
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    outline-color: var(--color-accent-3);
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background-color: var(--color-dark-2);
+    color: white;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 0;
+    top: 0;
+}
+
+/* ===========================
    Animations
    =========================== */
 @keyframes fadeInUp {
@@ -2035,6 +2071,15 @@ body.dark-mode .footer {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Social media section responsive */
+    .social-media-title {
+        font-size: 1.5rem;
+    }
+    
+    .social-links-bottom {
+        gap: var(--spacing-sm);
+    }
 }
 
 @media (max-width: 480px) {
@@ -2103,6 +2148,15 @@ body.dark-mode .footer {
     .social-links {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .social-links-bottom {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-media-title {
+        font-size: 1.3rem;
     }
     
     .footer-content {
