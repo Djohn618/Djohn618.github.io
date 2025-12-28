@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Deshan John</title>
+    <meta name="description" content="Die gesuchte Seite wurde nicht gefunden.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="alternate icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --color-dark-1: #2C3333;
+            --color-dark-2: #395B64;
+            --color-light-1: #A5C9CA;
+            --color-light-2: #E7F6F2;
+            --color-accent-1: #00312C;
+            --color-accent-2: #182F57;
+            --color-accent-3: #50B6FE;
+            --bg-light: #E7F6F2;
+            --text-light: #2C3333;
+            --bg-dark: #1a1a1a;
+            --text-dark: #E7F6F2;
+            --font-primary: 'Inter', sans-serif;
+            --font-display: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container-404 {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .astronaut-wrapper {
+            position: relative;
+            margin: 0 auto 3rem;
+            width: 300px;
+            height: 300px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .astronaut {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-accent-3) 0%, var(--color-dark-2) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(80, 182, 254, 0.3);
+            position: relative;
+        }
+
+        body.dark-mode .astronaut {
+            box-shadow: 0 20px 60px rgba(80, 182, 254, 0.5);
+        }
+
+        .planet {
+            position: absolute;
+            background: var(--color-light-1);
+            border-radius: 50%;
+            animation: orbit 20s linear infinite;
+        }
+
+        .planet-1 {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            right: -20px;
+            animation-duration: 15s;
+        }
+
+        .planet-2 {
+            width: 25px;
+            height: 25px;
+            bottom: -10px;
+            left: -10px;
+            animation-duration: 20s;
+            animation-delay: -5s;
+            background: var(--color-accent-3);
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            font-family: var(--font-display);
+            background: linear-gradient(135deg, var(--color-dark-2), var(--color-accent-3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: var(--font-display);
+        }
+
+        .error-message {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--color-dark-2);
+            line-height: 1.6;
+        }
+
+        body.dark-mode .error-message {
+            color: var(--color-light-1);
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background-color: var(--color-dark-2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(57, 91, 100, 0.3);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(57, 91, 100, 0.4);
+            background-color: var(--color-accent-3);
+        }
+
+        body.dark-mode .btn-home {
+            background-color: var(--color-accent-3);
+        }
+
+        body.dark-mode .btn-home:hover {
+            background-color: var(--color-dark-2);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            z-index: 100;
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            border-color: var(--text-dark);
+            color: var(--text-dark);
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--color-dark-2);
+            border-color: var(--color-dark-2);
+            color: white;
+            transform: rotate(20deg);
+        }
+
+        body.dark-mode .dark-mode-toggle:hover {
+            background-color: var(--color-accent-3);
+            border-color: var(--color-accent-3);
+        }
+
+        /* Stars background effect */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--color-accent-3);
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .astronaut-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .astronaut {
+                font-size: 6rem;
+            }
+
+            .dark-mode-toggle {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .astronaut-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+
+            .astronaut {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Dark Mode Toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="stars" id="stars"></div>
+
+    <div class="container-404">
+        <div class="astronaut-wrapper">
+            <div class="astronaut">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="planet planet-1"></div>
+            <div class="planet planet-2"></div>
+        </div>
+
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">PAGE NOT FOUND</h2>
+        <p class="error-message">
+            Ihre Suche hat sich über das bekannte Universum hinaus gewagt.<br>
+            Die gesuchte Seite scheint im digitalen Weltraum verloren gegangen zu sein.
+        </p>
+        <a href="/" class="btn-home">
+            <i class="fas fa-home"></i>
+            Zurück zur Startseite
+        </a>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        const savedMode = localStorage.getItem('darkMode');
+        const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedMode === 'enabled' || (!savedMode && systemPrefersDark)) {
+            body.classList.add('dark-mode');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Create stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 50;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        createStars();
+    </script>
+</body>
+</html>

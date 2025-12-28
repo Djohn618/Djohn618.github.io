@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deshanjohn.me/sitemap.xml
