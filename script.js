@@ -361,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initServicesToggle();
     initContactForm();
     initSkillsEnhancement();
+    initHorizontalTimeline();
     // initParallax(); // Uncomment if you want parallax effect
     // initTypingEffect(); // Uncomment if you want typing effect
 });

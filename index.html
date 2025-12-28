@@ -197,65 +197,116 @@
 
     <!-- My Journey Section -->
     <section class="journey" id="journey">
-        <div class="container">
+        <div class="journey-header">
             <h2 class="section-title" data-de="My Journey" data-en="My Journey">My Journey</h2>
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div class="timeline-years">
-                    <span class="year-marker start">2018</span>
-                    <span class="year-marker end">2024</span>
-                </div>
-                <div class="timeline-items">
-                    <div class="timeline-item fade-in" data-year="2019">
-                        <div class="timeline-year">2019</div>
-                        <div class="timeline-card">
-                            <div class="timeline-image-wrapper">
-                                <i class="fas fa-graduation-cap timeline-icon"></i>
+        </div>
+        <div class="timeline-horizontal-wrapper">
+            <button class="timeline-nav timeline-nav-left" aria-label="Scroll Left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="timeline-horizontal-container" id="timelineContainer">
+                <div class="timeline-line-horizontal"></div>
+                <div class="timeline-items-horizontal">
+                    <!-- 2012-2019: Sri Lanka School -->
+                    <div class="timeline-item-horizontal" data-year="2012-2019">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/Sri_lanka_school_2012-2019.png" alt="Sinhala Central College National School Trincomalee" loading="lazy">
                             </div>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title" data-de="Beginn der Ausbildung" data-en="Start of Training">Beginn der Ausbildung</h3>
-                                <p class="timeline-description" data-de="Start meiner Informatik-Ausbildung bei Haeusler AG" data-en="Start of my computer science training at Haeusler AG">Start meiner Informatik-Ausbildung bei Haeusler AG</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item fade-in" data-year="2021">
-                        <div class="timeline-year">2021</div>
-                        <div class="timeline-card">
-                            <div class="timeline-image-wrapper">
-                                <i class="fas fa-code timeline-icon"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title" data-de="Erste Web-Projekte" data-en="First Web Projects">Erste Web-Projekte</h3>
-                                <p class="timeline-description" data-de="Entwicklung erster professioneller Webprojekte und Vertiefung in Frontend-Technologien" data-en="Development of first professional web projects and deepening in frontend technologies">Entwicklung erster professioneller Webprojekte und Vertiefung in Frontend-Technologien</p>
+                            <div class="timeline-year-badge">2012-2019</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Sinhala Central College National School</h3>
+                                <p class="timeline-location">Trincomalee, Sri Lanka</p>
+                                <p class="timeline-description-horizontal">1. bis 8. Klasse</p>
                             </div>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in" data-year="2022">
-                        <div class="timeline-year">2022</div>
-                        <div class="timeline-card highlighted">
-                            <div class="timeline-image-wrapper">
-                                <i class="fas fa-users timeline-icon"></i>
+
+                    <!-- 2019-2021: Fremdsprachen Klasse -->
+                    <div class="timeline-item-horizontal" data-year="2019-2021">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/Lochackerschulhaus_2021-2022.jpeg" alt="Fremdsprachen Klasse Schweiz Reinach" loading="lazy">
                             </div>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title" data-de="JETZ Youth Lab" data-en="JETZ Youth Lab">JETZ Youth Lab</h3>
-                                <p class="timeline-description" data-de="Engagement im JETZ Youth Lab, Python-Kurs für Jugendliche" data-en="Engagement in JETZ Youth Lab, Python course for youth">Engagement im JETZ Youth Lab, Python-Kurs für Jugendliche</p>
+                            <div class="timeline-year-badge">2019-2021</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Fremdsprachen Klasse</h3>
+                                <p class="timeline-location">Reinach, Schweiz</p>
+                                <p class="timeline-description-horizontal">Integration und Sprachförderung</p>
                             </div>
                         </div>
                     </div>
-                    <div class="timeline-item fade-in" data-year="2024">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-card">
-                            <div class="timeline-image-wrapper">
-                                <i class="fas fa-rocket timeline-icon"></i>
+
+                    <!-- 2021-2022: Sekundarschule Niveau A -->
+                    <div class="timeline-item-horizontal" data-year="2021-2022">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/Lochackerschulhaus_2021-2022.jpeg" alt="Sekundarschule Niveau A" loading="lazy">
                             </div>
-                            <div class="timeline-content">
-                                <h3 class="timeline-title" data-de="Portfolio & Projekte" data-en="Portfolio & Projects">Portfolio & Projekte</h3>
-                                <p class="timeline-description" data-de="Erweiterung des Portfolios und Fokus auf moderne Web-Technologien" data-en="Expansion of portfolio and focus on modern web technologies">Erweiterung des Portfolios und Fokus auf moderne Web-Technologien</p>
+                            <div class="timeline-year-badge">2021-2022</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Sekundarschule Niveau A</h3>
+                                <p class="timeline-location">Reinach, Schweiz</p>
+                                <p class="timeline-description-horizontal">Grundlegende Sekundarschulausbildung</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2022-2024: Sekundarschule Niveau E -->
+                    <div class="timeline-item-horizontal" data-year="2022-2024">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/bachbattenschulhaus_2022-2024.jpg" alt="Sekundarschule Niveau E" loading="lazy">
+                            </div>
+                            <div class="timeline-year-badge">2022-2024</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Sekundarschule Niveau E</h3>
+                                <p class="timeline-location">Reinach, Schweiz</p>
+                                <p class="timeline-description-horizontal">Erweiterte Anforderungen</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2023-2025: Kursleiter JETZ -->
+                    <div class="timeline-item-horizontal highlighted" data-year="2023-2025">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/jetz_kurs_2023-2026.png" alt="JETZ Python Kursleiter" loading="lazy">
+                            </div>
+                            <div class="timeline-year-badge">2023-2025</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Kursleiter Python</h3>
+                                <p class="timeline-location">JETZ Muttenz, Schweiz</p>
+                                <p class="timeline-description-horizontal">Python-Kurse für Jugendliche</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2024-2026: Informatik Lehre -->
+                    <div class="timeline-item-horizontal current" data-year="2024-2026">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-card-horizontal">
+                            <div class="timeline-image">
+                                <img src="design_referenz_bilder/haeusler_2024-2026.JPG" alt="Haeusler AG Informatik Lehre" loading="lazy">
+                            </div>
+                            <div class="timeline-year-badge">2024-2026</div>
+                            <div class="timeline-content-horizontal">
+                                <h3 class="timeline-title-horizontal">Informatiker Applikationsentwickler</h3>
+                                <p class="timeline-location">Haeusler AG, bbzbl Pratteln</p>
+                                <p class="timeline-description-horizontal">2. Lehrjahr EFZ</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <button class="timeline-nav timeline-nav-right" aria-label="Scroll Right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
