@@ -89,6 +89,16 @@
     </script>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <img src="logo.svg" alt="DJ Logo" class="logo-spinner">
+            </div>
+            <div class="loading-text" data-de="Lädt..." data-en="Loading...">Lädt...</div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="container">
@@ -274,14 +284,14 @@
                         </div>
                     </div>
 
-                    <!-- 2023-2025: Kursleiter JETZ -->
-                    <div class="timeline-item-horizontal highlighted" data-year="2023-2025">
+                    <!-- 2023-2026: Kursleiter JETZ -->
+                    <div class="timeline-item-horizontal highlighted" data-year="2023-2026">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card-horizontal">
                             <div class="timeline-image">
                                 <img src="design_referenz_bilder/jetz_kurs_2023-2026.png" alt="JETZ Python Kursleiter" loading="lazy">
                             </div>
-                            <div class="timeline-year-badge">2023-2025</div>
+                            <div class="timeline-year-badge">2023-2026</div>
                             <div class="timeline-content-horizontal">
                                 <h3 class="timeline-title-horizontal">Kursleiter Python</h3>
                                 <p class="timeline-location">JETZ Muttenz, Schweiz</p>
@@ -290,14 +300,14 @@
                         </div>
                     </div>
 
-                    <!-- 2024-2026: Informatik Lehre -->
-                    <div class="timeline-item-horizontal current" data-year="2024-2026">
+                    <!-- 2024-2028: Informatik Lehre -->
+                    <div class="timeline-item-horizontal current" data-year="2024-2028">
                         <div class="timeline-dot"></div>
                         <div class="timeline-card-horizontal">
                             <div class="timeline-image">
                                 <img src="design_referenz_bilder/haeusler_2024-2026.JPG" alt="Haeusler AG Informatik Lehre" loading="lazy">
                             </div>
-                            <div class="timeline-year-badge">2024-2026</div>
+                            <div class="timeline-year-badge">2024-2028</div>
                             <div class="timeline-content-horizontal">
                                 <h3 class="timeline-title-horizontal">Informatiker Applikationsentwickler</h3>
                                 <p class="timeline-location">Haeusler AG, bbzbl Pratteln</p>
@@ -310,6 +320,28 @@
             <button class="timeline-nav timeline-nav-right" aria-label="Scroll Right">
                 <i class="fas fa-chevron-right"></i>
             </button>
+        </div>
+    </section>
+
+    <!-- Year Timeline Section (2012-2026) -->
+    <section class="year-timeline-section">
+        <div class="container">
+            <div class="year-timeline-wrapper">
+                <div class="year-timeline-line"></div>
+                <div class="year-markers">
+                    <div class="year-marker" data-year="2012">2012</div>
+                    <div class="year-marker" data-year="2014">2014</div>
+                    <div class="year-marker" data-year="2016">2016</div>
+                    <div class="year-marker" data-year="2018">2018</div>
+                    <div class="year-marker" data-year="2020">2020</div>
+                    <div class="year-marker" data-year="2022">2022</div>
+                    <div class="year-marker" data-year="2024">2024</div>
+                    <div class="year-marker" data-year="2026">2026</div>
+                </div>
+                <div class="year-logo-moving">
+                    <img src="logo.svg" alt="DJ Logo" class="year-logo-icon">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -562,26 +594,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/deshan-john/" target="_blank" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/deshan.john/" target="_blank" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@DeshanJohn618" target="_blank" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="https://www.tiktok.com/@deshan.john" target="_blank" class="social-link" aria-label="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                    </div>
                 </div>
 
                 <div class="contact-form-section">
                     <form action="https://formspree.io/f/mgoeznlr" method="POST" class="contact-form" id="contactForm">
                         <input type="hidden" name="_next" value="https://deshanjohn.me/thankyou.html">
+                        <!-- Honeypot field for spam protection (hidden from users) -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="form-group">
                             <label for="name" data-de="Name" data-en="Name">Name</label>
                             <input type="text" id="name" name="name" required placeholder="Ihr Name">
@@ -604,6 +623,27 @@
                         </button>
                     </form>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media-section">
+        <div class="container">
+            <h3 class="social-media-title" data-de="Folgen Sie mir" data-en="Follow Me">Folgen Sie mir</h3>
+            <div class="social-links-bottom">
+                <a href="https://www.linkedin.com/in/deshan-john/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/deshan.john/" target="_blank" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@DeshanJohn618" target="_blank" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.tiktok.com/@deshan.john" target="_blank" class="social-link" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
         </div>
     </section>

@@ -69,6 +69,79 @@ body.dark-mode {
     color: var(--text-dark);
 }
 
+body.loaded {
+    overflow: visible;
+}
+
+/* ===========================
+   Loading Screen
+   =========================== */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-logo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 2rem;
+    animation: pulse-scale 1.5s ease-in-out infinite;
+}
+
+.logo-spinner {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes pulse-scale {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -986,6 +1059,7 @@ body.dark-mode .timeline-card-horizontal {
     height: 220px;
     overflow: hidden;
     position: relative;
+    z-index: 3;
 }
 
 .timeline-image img {
@@ -1101,6 +1175,174 @@ body.dark-mode .timeline-nav:hover {
 
 .timeline-nav-right {
     right: 10px;
+}
+
+/* ===========================
+   Year Timeline Section (2012-2026)
+   =========================== */
+.year-timeline-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-light);
+    overflow: hidden;
+}
+
+body.dark-mode .year-timeline-section {
+    background-color: var(--card-bg-dark);
+}
+
+.year-timeline-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.year-timeline-line {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--color-dark-2) 0%, var(--accent-secondary) 50%, var(--color-accent-3) 100%);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .year-timeline-line {
+    background: linear-gradient(90deg, var(--accent-secondary) 0%, var(--color-accent-3) 50%, var(--color-light-1) 100%);
+}
+
+.year-markers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.year-marker {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-dark-2);
+    text-align: center;
+    position: relative;
+}
+
+body.dark-mode .year-marker {
+    color: var(--accent-secondary);
+}
+
+.year-marker::before {
+    content: '';
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-secondary);
+    border: 3px solid var(--bg-light);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .year-marker::before {
+    background-color: var(--color-accent-3);
+    border-color: var(--card-bg-dark);
+}
+
+.year-logo-moving {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-dark-1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: moveLogo 15s linear infinite;
+    z-index: 10;
+}
+
+body.dark-mode .year-logo-moving {
+    background-color: var(--accent-secondary);
+}
+
+.year-logo-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .year-logo-icon {
+    filter: brightness(0) invert(0);
+}
+
+@keyframes moveLogo {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: calc(100% - 50px);
+    }
+}
+
+/* Responsive adjustments for year timeline */
+@media (max-width: 768px) {
+    .year-markers {
+        font-size: 0.9rem;
+    }
+    
+    .year-marker {
+        font-size: 1rem;
+    }
+    
+    .year-marker::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .year-logo-moving {
+        width: 40px;
+        height: 40px;
+    }
+    
+    @keyframes moveLogo {
+        0% {
+            left: 0%;
+        }
+        100% {
+            left: calc(100% - 40px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .year-marker {
+        font-size: 0.85rem;
+    }
+    
+    .year-marker::before {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .year-logo-moving {
+        width: 35px;
+        height: 35px;
+    }
+    
+    @keyframes moveLogo {
+        0% {
+            left: 0%;
+        }
+        100% {
+            left: calc(100% - 35px);
+        }
+    }
 }
 
 /* ===========================
@@ -1549,6 +1791,34 @@ body.dark-mode .form-group textarea {
 }
 
 /* ===========================
+   Social Media Section (Bottom)
+   =========================== */
+.social-media-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+body.dark-mode .social-media-section {
+    background-color: var(--bg-dark);
+}
+
+.social-media-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.social-links-bottom {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===========================
    Footer
    =========================== */
 .footer {
@@ -1588,6 +1858,42 @@ body.dark-mode .footer {
 
 .footer-link:hover {
     color: var(--accent-secondary);
+}
+
+/* ===========================
+   Accessibility & Focus States
+   =========================== */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
+body.dark-mode a:focus,
+body.dark-mode button:focus,
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    outline-color: var(--color-accent-3);
+}
+
+/* Skip to main content link for screen readers */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem;
+    background-color: var(--color-dark-2);
+    color: white;
+    text-decoration: none;
+}
+
+.skip-to-main:focus {
+    left: 0;
+    top: 0;
 }
 
 /* ===========================
@@ -1763,6 +2069,15 @@ body.dark-mode .footer {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Social media section responsive */
+    .social-media-title {
+        font-size: 1.5rem;
+    }
+    
+    .social-links-bottom {
+        gap: var(--spacing-sm);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1831,6 +2146,15 @@ body.dark-mode .footer {
     .social-links {
         justify-content: center;
         flex-wrap: wrap;
+    }
+    
+    .social-links-bottom {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .social-media-title {
+        font-size: 1.3rem;
     }
     
     .footer-content {

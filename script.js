@@ -19,17 +19,53 @@ const translations = {
 let currentLang = 'de';
 
 // ===========================
+// Detect Browser Language and Initialize
+// ===========================
+function detectBrowserLanguage() {
+    // Check saved preference first
+    const savedLang = localStorage.getItem('language');
+    if (savedLang) {
+        return savedLang;
+    }
+    
+    // Detect browser language
+    const browserLang = navigator.language || navigator.userLanguage;
+    
+    // Check if browser language starts with 'en'
+    if (browserLang && browserLang.toLowerCase().startsWith('en')) {
+        return 'en';
+    }
+    
+    // Default to German
+    return 'de';
+}
+
+// ===========================
+// Initialize Language
+// ===========================
+function initLanguage() {
+    currentLang = detectBrowserLanguage();
+    updateLanguage();
+}
+
+// ===========================
 // Dark Mode Toggle
 // ===========================
 function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     
-    // Check for saved preference or system preference
+    // Check for saved preference or system preference, default to dark mode
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedMode === 'enabled' || (!savedMode && systemPrefersDark)) {
+    // Default to dark mode: enable if not explicitly disabled
+    if (savedMode === 'disabled') {
+        // User explicitly disabled dark mode
+        body.classList.remove('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    } else {
+        // Default to dark mode (savedMode === 'enabled', null, or system prefers dark)
         body.classList.add('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
     }
@@ -254,28 +290,66 @@ function initServicesToggle() {
 }
 
 // ===========================
-// Contact Form Handler
+// Contact Form Handler with Anti-Spam
 // ===========================
 function initContactForm() {
     const form = document.getElementById('contactForm');
     
     if (form) {
-        form.addEventListener('submit', (e) => {
+        // Rate limiting using localStorage
+        let lastSubmitTime = localStorage.getItem('lastFormSubmit');
+        
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            // Rate limiting check (30 seconds between submissions)
+            const now = Date.now();
+            if (lastSubmitTime) {
+                const parsedTime = parseInt(lastSubmitTime, 10);
+                if (!isNaN(parsedTime) && (now - parsedTime) < 30000) {
+                    alert('Bitte warten Sie 30 Sekunden zwischen den Anfragen.');
+                    return;
+                }
+            }
             
-            // Create mailto link
-            const mailtoLink = `mailto:${CONFIG.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            // Check honeypot field (if exists)
+            const honeypot = form.querySelector('input[name="_gotcha"]');
+            if (honeypot && honeypot.value) {
+                // Bot detected, silently reject
+                return;
+            }
             
-            // Open email client
-            window.location.href = mailtoLink;
+            const submitBtn = form.querySelector('.btn-submit');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Senden...';
             
-            // Show success message (optional)
-            alert('Ihr E-Mail-Client wird geöffnet. Bitte senden Sie die E-Mail ab.');
+            try {
+                const formData = new FormData(form);
+                
+                const response = await fetch('https://formspree.io/f/mgoeznlr', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Store submit time for rate limiting
+                    localStorage.setItem('lastFormSubmit', now.toString());
+                    // Redirect to thank you page
+                    window.location.href = 'https://deshanjohn.me/thankyou.html';
+                } else {
+                    alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            } catch (error) {
+                alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
         });
     }
 }
@@ -349,9 +423,59 @@ function initTypingEffect() {
 }
 
 // ===========================
+// Horizontal Timeline Navigation
+// ===========================
+function initHorizontalTimeline() {
+    const container = document.getElementById('timelineContainer');
+    const leftBtn = document.querySelector('.timeline-nav-left');
+    const rightBtn = document.querySelector('.timeline-nav-right');
+    
+    if (!container || !leftBtn || !rightBtn) return;
+    
+    // Calculate scroll amount dynamically based on card width
+    const getScrollAmount = () => {
+        const firstCard = container.querySelector('.timeline-item-horizontal');
+        if (firstCard) {
+            return firstCard.offsetWidth + 100; // card width + gap
+        }
+        return 450; // fallback
+    };
+    
+    leftBtn.addEventListener('click', () => {
+        container.scrollBy({
+            left: -getScrollAmount(),
+            behavior: 'smooth'
+        });
+    });
+    
+    rightBtn.addEventListener('click', () => {
+        container.scrollBy({
+            left: getScrollAmount(),
+            behavior: 'smooth'
+        });
+    });
+    
+    // Show/hide navigation buttons based on scroll position
+    function updateNavButtons() {
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        const currentScroll = container.scrollLeft;
+        
+        leftBtn.style.opacity = currentScroll <= 0 ? '0.5' : '1';
+        leftBtn.style.cursor = currentScroll <= 0 ? 'default' : 'pointer';
+        
+        rightBtn.style.opacity = currentScroll >= maxScroll - 10 ? '0.5' : '1';
+        rightBtn.style.cursor = currentScroll >= maxScroll - 10 ? 'default' : 'pointer';
+    }
+    
+    container.addEventListener('scroll', updateNavButtons);
+    updateNavButtons();
+}
+
+// ===========================
 // Initialize All Functions
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
+    initLanguage();
     initDarkMode();
     initMobileMenu();
     initSmoothScroll();
@@ -364,6 +488,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initHorizontalTimeline();
     // initParallax(); // Uncomment if you want parallax effect
     // initTypingEffect(); // Uncomment if you want typing effect
+});
+
+// ===========================
+// Loading Screen
+// ===========================
+window.addEventListener('load', () => {
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 500);
+    }
 });
 
 // ===========================
@@ -384,8 +521,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===========================
-// Preloader (Optional)
+// Loading Screen
 // ===========================
 window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 500);
+    }
 });
