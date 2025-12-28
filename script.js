@@ -304,9 +304,12 @@ function initContactForm() {
             
             // Rate limiting check (30 seconds between submissions)
             const now = Date.now();
-            if (lastSubmitTime && (now - parseInt(lastSubmitTime)) < 30000) {
-                alert('Bitte warten Sie 30 Sekunden zwischen den Anfragen.');
-                return;
+            if (lastSubmitTime) {
+                const parsedTime = parseInt(lastSubmitTime, 10);
+                if (!isNaN(parsedTime) && (now - parsedTime) < 30000) {
+                    alert('Bitte warten Sie 30 Sekunden zwischen den Anfragen.');
+                    return;
+                }
             }
             
             // Check honeypot field (if exists)
@@ -429,19 +432,25 @@ function initHorizontalTimeline() {
     
     if (!container || !leftBtn || !rightBtn) return;
     
-    // Scroll amount (one card width + gap)
-    const scrollAmount = 450;
+    // Calculate scroll amount dynamically based on card width
+    const getScrollAmount = () => {
+        const firstCard = container.querySelector('.timeline-item-horizontal');
+        if (firstCard) {
+            return firstCard.offsetWidth + 100; // card width + gap
+        }
+        return 450; // fallback
+    };
     
     leftBtn.addEventListener('click', () => {
         container.scrollBy({
-            left: -scrollAmount,
+            left: -getScrollAmount(),
             behavior: 'smooth'
         });
     });
     
     rightBtn.addEventListener('click', () => {
         container.scrollBy({
-            left: scrollAmount,
+            left: getScrollAmount(),
             behavior: 'smooth'
         });
     });
@@ -512,8 +521,14 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ===========================
-// Preloader (Optional)
+// Loading Screen
 // ===========================
 window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
+    const loadingScreen = document.getElementById('loadingScreen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            document.body.classList.add('loaded');
+        }, 500);
+    }
 });
