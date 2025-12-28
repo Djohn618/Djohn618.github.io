@@ -2,7 +2,7 @@
 // Configuration
 // ===========================
 const CONFIG = {
-    contactEmail: 'deshanjohn@gmx.ch'
+    contactEmail: 'deshan.john@gmx.ch'
 };
 
 // ===========================

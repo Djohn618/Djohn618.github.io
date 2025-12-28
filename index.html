@@ -3,8 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Deshan John - Informatiker & Webdesigner Portfolio">
-    <title>Deshan John - Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Deshan John - Informatiker Applikationsentwickler & Webdesigner | Portfolio</title>
+    <meta name="description" content="Deshan John - Informatiker Applikationsentwickler bei Haeusler AG und Webdesigner. Spezialisiert auf Web Design, UX/UI, Frontend-Entwicklung und IT-Infrastruktur. Portfolio und Kontakt.">
+    <meta name="keywords" content="Deshan John, Informatiker, Webdesigner, Web Development, UX/UI Design, Frontend Developer, Haeusler AG, Portfolio">
+    <meta name="author" content="Deshan John">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://deshanjohn.me/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://deshanjohn.me/">
+    <meta property="og:title" content="Deshan John - Informatiker Applikationsentwickler & Webdesigner">
+    <meta property="og:description" content="Portfolio von Deshan John - Spezialisiert auf Web Design, UX/UI, Frontend-Entwicklung und IT-Infrastruktur.">
+    <meta property="og:image" content="https://deshanjohn.me/Images/profile.jpg">
+    <meta property="og:locale" content="de_CH">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://deshanjohn.me/">
+    <meta name="twitter:title" content="Deshan John - Informatiker Applikationsentwickler & Webdesigner">
+    <meta name="twitter:description" content="Portfolio von Deshan John - Spezialisiert auf Web Design, UX/UI, Frontend-Entwicklung und IT-Infrastruktur.">
+    <meta name="twitter:image" content="https://deshanjohn.me/Images/profile.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" as="style">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +47,45 @@
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Deshan John",
+      "url": "https://deshanjohn.me",
+      "image": "https://deshanjohn.me/Images/profile.jpg",
+      "jobTitle": "Informatiker Applikationsentwickler & Webdesigner",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Haeusler AG"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Basel",
+        "addressCountry": "CH"
+      },
+      "email": "deshan.john@gmx.ch",
+      "sameAs": [
+        "https://www.linkedin.com/in/deshan-john/",
+        "https://www.instagram.com/deshan.john/",
+        "https://www.youtube.com/@DeshanJohn618",
+        "https://www.tiktok.com/@deshan.john"
+      ],
+      "knowsAbout": ["Web Design", "UX/UI Design", "Frontend Development", "Python", "JavaScript", "HTML/CSS", "IT Infrastructure"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Sinhala Central College National School Trincomalee"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Sekundarschule Reinach"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -97,7 +167,7 @@
             <div class="about-content">
                 <div class="about-image">
                     <div class="about-photo-wrapper">
-                        <img src="Images/profile.jpg" alt="Deshan John About" class="about-photo">
+                        <img src="design_referenz_bilder/about_myself.jpeg" alt="Deshan John - Informatiker Applikationsentwickler" class="about-photo" loading="lazy">
                         <div class="rotating-text-circle">
                             <svg viewBox="0 0 200 200">
                                 <defs>
@@ -202,6 +272,7 @@
             <div class="projects-grid">
                 <div class="project-card fade-in" data-category="web development">
                     <div class="project-image">
+                        <img src="design_referenz_bilder/shanika_store_mywork.png" alt="Shanika Supermarket Website Preview" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://shanikasuperandgrocery.netlify.app/" target="_blank" class="project-view-btn">
                                 <i class="fas fa-external-link-alt"></i>
@@ -220,6 +291,7 @@
                 </div>
                 <div class="project-card fade-in" data-category="teaching development">
                     <div class="project-image">
+                        <img src="design_referenz_bilder/jetz_kurs_2023-2026.png" alt="JETZ Python Course Preview" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://us6.campaign-archive.com/?u=3a87cb314293298a29f6ecb56&id=7c9d2bcfee" target="_blank" class="project-view-btn">
                                 <i class="fas fa-external-link-alt"></i>
@@ -238,6 +310,7 @@
                 </div>
                 <div class="project-card fade-in" data-category="teaching">
                     <div class="project-image">
+                        <img src="design_referenz_bilder/youtube_mywork.png" alt="YouTube Channel Preview" loading="lazy">
                         <div class="project-overlay">
                             <a href="https://www.youtube.com/@DeshanJohn618" target="_blank" class="project-view-btn">
                                 <i class="fas fa-external-link-alt"></i>
@@ -373,16 +446,6 @@
                         <div class="skill-bar" style="--skill-percent: 80%"></div>
                     </div>
                 </div>
-                <div class="skill-card fade-in" data-skill="git">
-                    <div class="skill-icon-wrapper">
-                        <i class="fab fa-git-alt"></i>
-                        <div class="skill-glow"></div>
-                    </div>
-                    <span>Git</span>
-                    <div class="skill-level">
-                        <div class="skill-bar" style="--skill-percent: 85%"></div>
-                    </div>
-                </div>
                 <div class="skill-card fade-in" data-skill="infrastructure">
                     <div class="skill-icon-wrapper">
                         <i class="fas fa-server"></i>
@@ -432,13 +495,7 @@
                             </div>
                             <div class="contact-detail-text">
                                 <h4>Email</h4>
-                                <a href="mailto:deshanjohn@gmx.ch">deshanjohn@gmx.ch</a>
-                            </div>
-
-                          
-                        <div class="contact-detail-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
+                                <a href="mailto:deshan.john@gmx.ch">deshan.john@gmx.ch</a>
                             </div>
                         </div>
                         <div class="contact-detail-item">
@@ -469,8 +526,8 @@
                 </div>
 
                 <div class="contact-form-section">
-                          <form action="https://formspree.io/f/mgoeznlr" method="POST" class="contact-form"></form>
-                    <form class="contact-form" id="contactForm">
+                    <form action="https://formspree.io/f/mgoeznlr" method="POST" class="contact-form" id="contactForm">
+                        <input type="hidden" name="_next" value="https://deshanjohn.me/thankyou.html">
                         <div class="form-group">
                             <label for="name" data-de="Name" data-en="Name">Name</label>
                             <input type="text" id="name" name="name" required placeholder="Ihr Name">
@@ -481,7 +538,7 @@
                         </div>
                         <div class="form-group">
                             <label for="subject" data-de="Betreff" data-en="Subject">Betreff</label>
-                            <input type="text" id="subject" name="subject" required placeholder="Projektanfrage">
+                            <input type="text" id="subject" name="_subject" required placeholder="Projektanfrage">
                         </div>
                         <div class="form-group">
                             <label for="message" data-de="Beschreibung" data-en="Description">Beschreibung</label>
