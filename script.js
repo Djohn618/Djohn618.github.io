@@ -55,19 +55,27 @@ function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     
-    // Check for saved preference or system preference, default to dark mode
+    // Check for saved preference first, then system preference
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Default to dark mode: enable if not explicitly disabled
+    // Priority: user choice > system preference > default (dark)
     if (savedMode === 'disabled') {
         // User explicitly disabled dark mode
         body.classList.remove('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-        // Default to dark mode (savedMode === 'enabled', null, or system prefers dark)
+    } else if (savedMode === 'enabled') {
+        // User explicitly enabled dark mode
         body.classList.add('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else if (systemPrefersDark) {
+        // System prefers dark mode
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        // System prefers light mode (or no preference)
+        body.classList.remove('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
     
     // Toggle dark mode
@@ -103,6 +111,27 @@ function updateLanguage() {
     
     // Update HTML lang attribute
     document.documentElement.lang = currentLang;
+    
+    // Update language toggle button
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) {
+            langText.textContent = currentLang.toUpperCase();
+        }
+    }
+}
+
+function initLanguageToggle() {
+    const langToggle = document.getElementById('langToggle');
+    
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'de' ? 'en' : 'de';
+            localStorage.setItem('language', currentLang);
+            updateLanguage();
+        });
+    }
 }
 
 // ===========================
@@ -469,6 +498,35 @@ function initHorizontalTimeline() {
     
     container.addEventListener('scroll', updateNavButtons);
     updateNavButtons();
+    
+    // Add scroll-based animations with IntersectionObserver
+    initTimelineScrollAnimations();
+}
+
+// ===========================
+// Timeline Scroll Animations
+// ===========================
+function initTimelineScrollAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item-horizontal');
+    
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('timeline-visible');
+                // Unobserve after animation for better performance
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    timelineItems.forEach((item) => {
+        observer.observe(item);
+    });
 }
 
 // ===========================
@@ -476,6 +534,7 @@ function initHorizontalTimeline() {
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
     initLanguage();
+    initLanguageToggle();
     initDarkMode();
     initMobileMenu();
     initSmoothScroll();
@@ -517,18 +576,5 @@ document.addEventListener('keydown', (e) => {
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
-    }
-});
-
-// ===========================
-// Loading Screen
-// ===========================
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            document.body.classList.add('loaded');
-        }, 500);
     }
 });
