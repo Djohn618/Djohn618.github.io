@@ -115,7 +115,10 @@ function updateLanguage() {
     // Update language toggle button
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
-        langToggle.querySelector('.lang-text').textContent = currentLang.toUpperCase();
+        const langText = langToggle.querySelector('.lang-text');
+        if (langText) {
+            langText.textContent = currentLang.toUpperCase();
+        }
     }
 }
 

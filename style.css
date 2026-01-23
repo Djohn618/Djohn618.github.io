@@ -1117,7 +1117,6 @@ body.dark-mode .timeline-year-badge {
     font-weight: 600;
     margin-bottom: 0.4rem;
     color: var(--color-dark-1);
-    max-width: 100%;
 }
 
 body.dark-mode .timeline-title-horizontal {
@@ -1145,7 +1144,6 @@ body.dark-mode .timeline-title-horizontal {
     line-height: 1.5;
     opacity: 0.85;
     color: var(--text-light);
-    max-width: 100%;
 }
 
 body.dark-mode .timeline-description-horizontal {
