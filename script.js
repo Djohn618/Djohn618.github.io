@@ -55,19 +55,27 @@ function initDarkMode() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     
-    // Check for saved preference or system preference, default to dark mode
+    // Check for saved preference first, then system preference
     const savedMode = localStorage.getItem('darkMode');
     const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    // Default to dark mode: enable if not explicitly disabled
+    // Priority: user choice > system preference > default (dark)
     if (savedMode === 'disabled') {
         // User explicitly disabled dark mode
         body.classList.remove('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-        // Default to dark mode (savedMode === 'enabled', null, or system prefers dark)
+    } else if (savedMode === 'enabled') {
+        // User explicitly enabled dark mode
         body.classList.add('dark-mode');
         darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else if (systemPrefersDark) {
+        // System prefers dark mode
+        body.classList.add('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    } else {
+        // System prefers light mode (or no preference)
+        body.classList.remove('dark-mode');
+        darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     }
     
     // Toggle dark mode
@@ -103,6 +111,24 @@ function updateLanguage() {
     
     // Update HTML lang attribute
     document.documentElement.lang = currentLang;
+    
+    // Update language toggle button
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+        langToggle.querySelector('.lang-text').textContent = currentLang.toUpperCase();
+    }
+}
+
+function initLanguageToggle() {
+    const langToggle = document.getElementById('langToggle');
+    
+    if (langToggle) {
+        langToggle.addEventListener('click', () => {
+            currentLang = currentLang === 'de' ? 'en' : 'de';
+            localStorage.setItem('language', currentLang);
+            updateLanguage();
+        });
+    }
 }
 
 // ===========================
@@ -469,6 +495,40 @@ function initHorizontalTimeline() {
     
     container.addEventListener('scroll', updateNavButtons);
     updateNavButtons();
+    
+    // Add scroll-based animations with IntersectionObserver
+    initTimelineScrollAnimations();
+}
+
+// ===========================
+// Timeline Scroll Animations
+// ===========================
+function initTimelineScrollAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item-horizontal');
+    
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'scale(1) translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    timelineItems.forEach((item, index) => {
+        // Reset initial state for scroll-based animation
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.9) translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        item.style.transitionDelay = `${index * 0.1}s`;
+        
+        observer.observe(item);
+    });
 }
 
 // ===========================
@@ -476,6 +536,7 @@ function initHorizontalTimeline() {
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
     initLanguage();
+    initLanguageToggle();
     initDarkMode();
     initMobileMenu();
     initSmoothScroll();

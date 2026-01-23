@@ -301,6 +301,39 @@ body.dark-mode .dark-mode-toggle:hover {
     border-color: var(--accent-secondary);
 }
 
+.lang-toggle {
+    background: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+body.dark-mode .lang-toggle {
+    border-color: var(--text-dark);
+    color: var(--text-dark);
+}
+
+.lang-toggle:hover {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+body.dark-mode .lang-toggle:hover {
+    background-color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -910,7 +943,7 @@ body.dark-mode .gear-icon {
    My Journey Section - Horizontal Timeline
    =========================== */
 .journey {
-    padding: var(--spacing-xl) 0;
+    padding: 60px 0;
     background-color: var(--bg-light);
     overflow: hidden;
 }
@@ -921,7 +954,7 @@ body.dark-mode .journey {
 
 .journey-header {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 40px;
 }
 
 .timeline-horizontal-wrapper {
@@ -936,7 +969,7 @@ body.dark-mode .journey {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    padding: 60px 20px;
+    padding: 50px 20px;
     position: relative;
     /* Hide scrollbar but keep functionality */
     scrollbar-width: none;
@@ -973,23 +1006,6 @@ body.dark-mode .timeline-line-horizontal {
     position: relative;
     flex-shrink: 0;
     width: 350px;
-    opacity: 0;
-    transform: scale(0.9);
-    animation: timelineReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.timeline-item-horizontal:nth-child(1) { animation-delay: 0.1s; }
-.timeline-item-horizontal:nth-child(2) { animation-delay: 0.2s; }
-.timeline-item-horizontal:nth-child(3) { animation-delay: 0.3s; }
-.timeline-item-horizontal:nth-child(4) { animation-delay: 0.4s; }
-.timeline-item-horizontal:nth-child(5) { animation-delay: 0.5s; }
-.timeline-item-horizontal:nth-child(6) { animation-delay: 0.6s; }
-
-@keyframes timelineReveal {
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }
 
 .timeline-dot {
@@ -1093,14 +1109,15 @@ body.dark-mode .timeline-year-badge {
 }
 
 .timeline-content-horizontal {
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .timeline-title-horizontal {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
     color: var(--color-dark-1);
+    max-width: 100%;
 }
 
 body.dark-mode .timeline-title-horizontal {
@@ -1108,10 +1125,10 @@ body.dark-mode .timeline-title-horizontal {
 }
 
 .timeline-location {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--accent-secondary);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
     display: flex;
     align-items: center;
     gap: 0.3rem;
@@ -1124,10 +1141,11 @@ body.dark-mode .timeline-title-horizontal {
 }
 
 .timeline-description-horizontal {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     opacity: 0.85;
     color: var(--text-light);
+    max-width: 100%;
 }
 
 body.dark-mode .timeline-description-horizontal {
