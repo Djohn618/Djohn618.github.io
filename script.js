@@ -517,21 +517,14 @@ function initTimelineScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'scale(1) translateY(0)';
+                entry.target.classList.add('timeline-visible');
                 // Unobserve after animation for better performance
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    timelineItems.forEach((item, index) => {
-        // Reset initial state for scroll-based animation
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.9) translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        item.style.transitionDelay = `${index * 0.1}s`;
-        
+    timelineItems.forEach((item) => {
         observer.observe(item);
     });
 }

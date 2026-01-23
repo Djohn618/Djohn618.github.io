@@ -35,7 +35,8 @@
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 5rem;
-    --spacing-compact: 60px; /* For compact sections */
+    --spacing-compact: 3.75rem; /* 60px - For compact sections */
+    --spacing-compact-sm: 3.125rem; /* 50px - For compact padding */
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -970,7 +971,7 @@ body.dark-mode .journey {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    padding: var(--spacing-lg) var(--spacing-sm);
+    padding: var(--spacing-compact-sm) 1.25rem;
     position: relative;
     /* Hide scrollbar but keep functionality */
     scrollbar-width: none;
@@ -1007,6 +1008,21 @@ body.dark-mode .timeline-line-horizontal {
     position: relative;
     flex-shrink: 0;
     width: 350px;
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-item-horizontal:nth-child(1) { transition-delay: 0.1s; }
+.timeline-item-horizontal:nth-child(2) { transition-delay: 0.2s; }
+.timeline-item-horizontal:nth-child(3) { transition-delay: 0.3s; }
+.timeline-item-horizontal:nth-child(4) { transition-delay: 0.4s; }
+.timeline-item-horizontal:nth-child(5) { transition-delay: 0.5s; }
+.timeline-item-horizontal:nth-child(6) { transition-delay: 0.6s; }
+
+.timeline-item-horizontal.timeline-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
 }
 
 .timeline-dot {
