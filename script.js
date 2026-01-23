@@ -519,6 +519,8 @@ function initTimelineScrollAnimations() {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'scale(1) translateY(0)';
+                // Unobserve after animation for better performance
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -581,18 +583,5 @@ document.addEventListener('keydown', (e) => {
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
-    }
-});
-
-// ===========================
-// Loading Screen
-// ===========================
-window.addEventListener('load', () => {
-    const loadingScreen = document.getElementById('loadingScreen');
-    if (loadingScreen) {
-        setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            document.body.classList.add('loaded');
-        }, 500);
     }
 });
